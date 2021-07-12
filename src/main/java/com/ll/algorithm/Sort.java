@@ -103,9 +103,9 @@ public class Sort {
     private static void mergeSort(int[] arr,int left,int right,int[] temp){
         if(left<right){
             int mid = (left+right)/2;
-            mergeSort(arr,left,mid,temp);
-            mergeSort(arr,mid+1,right,temp);
-            mergeSort(arr,left,mid,right,temp);
+            mergeSort(arr,left,mid,temp); // 左侧
+            mergeSort(arr,mid+1,right,temp);  // 右侧
+            mergeSort(arr,left,mid,right,temp);  // 合并
         }
     }
     private static void mergeSort(int[] arr,int left,int mid,int right,int[] temp){
@@ -192,7 +192,7 @@ public class Sort {
      * 堆排序 升序采用大顶堆
      * @param a
      */
-    public static void heapSort(int []arr){
+    public static void heapSort(int[] arr){
         //1.构建大顶堆
         for(int i=arr.length/2-1;i>=0;i--){
             //从第一个非叶子结点从下至上，从右至左调整结构
@@ -247,7 +247,7 @@ public class Sort {
 
     public static void main(String[] args) {
         int[] a = new int[]{1,4,3,76,2};
-        heapSort(a);
+        quickSort(a);
         for (Integer integer : a){
             System.out.println(integer);
         }
@@ -255,3 +255,4 @@ public class Sort {
 
 
 }
+

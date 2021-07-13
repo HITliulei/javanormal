@@ -1,4 +1,4 @@
-package com.ll.cur;
+package com.ll.cur.printABC;
 
 import javax.jws.Oneway;
 

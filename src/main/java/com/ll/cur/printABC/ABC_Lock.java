@@ -37,8 +37,9 @@ public class ABC_Lock {
         @Override
         public void run(){
             for (int i = 0; i < 10;) {
+                lock.lock();
                 try {
-                    lock.lock();
+
                     while (state % 3 == 1) {// 多线程并发，不能用if，必须用循环测试等待条件，避免虚假唤醒
                         System.out.print("B");
                         state++;

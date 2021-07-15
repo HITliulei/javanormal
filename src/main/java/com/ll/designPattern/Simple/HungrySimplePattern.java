@@ -1,5 +1,6 @@
 package com.ll.designPattern.Simple;
 
+
 /**
  * @author Lei
  * @version 0.1
@@ -14,4 +15,5 @@ public class HungrySimplePattern {
     public static HungrySimplePattern getInstance(){
         return instance;
     }
+
 }

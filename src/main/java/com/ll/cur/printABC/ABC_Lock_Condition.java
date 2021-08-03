@@ -1,5 +1,7 @@
 package com.ll.cur.printABC;
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
@@ -18,7 +20,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  */
 public class ABC_Lock_Condition {
-    private static Lock lock = new ReentrantLock();
+    private static ReentrantLock lock = new ReentrantLock();
     private static Condition A = lock.newCondition();
     private static Condition B = lock.newCondition();
     private static Condition C = lock.newCondition();

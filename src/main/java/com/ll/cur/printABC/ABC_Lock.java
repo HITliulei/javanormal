@@ -1,5 +1,7 @@
 package com.ll.cur.printABC;
 
+import com.sun.org.apache.xpath.internal.operations.String;
+
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -9,7 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @date 2021/7/13
  */
 public class ABC_Lock {
-    private static Lock lock = new ReentrantLock();
+    private static ReentrantLock lock = new ReentrantLock();
 
     private static int state = 0;
 
@@ -17,8 +19,8 @@ public class ABC_Lock {
         @Override
         public void run(){
             for (int i = 0; i < 10;) {
+                lock.lock();
                 try {
-                    lock.lock();
                     while (state % 3 == 0) {// 多线程并发，不能用if，必须用循环测试等待条件，避免虚假唤醒
                         System.out.print("A");
                         state++;

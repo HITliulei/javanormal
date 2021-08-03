@@ -98,20 +98,21 @@ public class Sort {
      * @param a
      */
     public static void mergeSort(int[] a){
-        mergeSort(a, 0, a.length-1, new int[a.length]);
+        mergeSort(a, 0, a.length-1);
     }
-    private static void mergeSort(int[] arr,int left,int right,int[] temp){
+    private static void mergeSort(int[] arr,int left,int right){
         if(left<right){
             int mid = (left+right)/2;
-            mergeSort(arr,left,mid,temp); // 左侧
-            mergeSort(arr,mid+1,right,temp);  // 右侧
-            mergeSort(arr,left,mid,right,temp);  // 合并
+            mergeSort(arr,left,mid); // 左侧
+            mergeSort(arr,mid+1,right);  // 右侧
+            mergeSort(arr,left,mid,right);  // 合并
         }
     }
-    private static void mergeSort(int[] arr,int left,int mid,int right,int[] temp){
+    private static void mergeSort(int[] arr,int left,int mid,int right){
         int i = left;
         int j = mid+1;
         int t = 0;
+        int[] temp = new int[right - left + 1];
         while (i<=mid && j<=right){
             temp[t++] = arr[i]<=arr[j]?arr[i++]:arr[j++];
         }
@@ -132,9 +133,9 @@ public class Sort {
      * @param a
      */
     public static void quickSort(int[] a){
-        queckSort(a, 0, a.length-1);
+        quickSort(a, 0, a.length-1);
     }
-    private static void queckSort(int[] a, int left, int right){
+    private static void quickSort(int[] a, int left, int right){
         if (left > right){
             return;
         }
@@ -153,8 +154,8 @@ public class Sort {
         }
         a[left] = a[i];
         a[i] = temp;
-        queckSort(a, left, i-1);
-        queckSort(a, i+1, right);
+        quickSort(a, left, i-1);
+        quickSort(a, i+1, right);
     }
 
     /**
@@ -190,7 +191,7 @@ public class Sort {
 
     /**
      * 堆排序 升序采用大顶堆
-     * @param a
+     * @param arr
      */
     public static void heapSort(int[] arr){
         //1.构建大顶堆

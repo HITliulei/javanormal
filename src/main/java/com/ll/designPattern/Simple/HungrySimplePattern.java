@@ -1,6 +1,10 @@
 package com.ll.designPattern.Simple;
 
 
+import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
+
 /**
  * @author Lei
  * @version 0.1
@@ -14,6 +18,10 @@ public class HungrySimplePattern {
 
     public static HungrySimplePattern getInstance(){
         return instance;
+    }
+
+    public static void main(String[] args) {
+        ConcurrentHashMap c = new ConcurrentHashMap();
     }
 
 }

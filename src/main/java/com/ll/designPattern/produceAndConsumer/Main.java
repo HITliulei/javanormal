@@ -1,5 +1,6 @@
 package com.ll.designPattern.produceAndConsumer;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -11,7 +12,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class Main {
 
     public static void main(String[] args) {
-        BlockingQueue blockingQueue = new LinkedBlockingQueue();
+        BlockingQueue blockingQueue = new ArrayBlockingQueue(20);
 
         Thread pThread = new Thread(new Produce(blockingQueue));
         Thread cThread = new Thread(new Consumer(blockingQueue));

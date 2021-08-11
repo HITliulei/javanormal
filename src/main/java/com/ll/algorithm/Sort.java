@@ -158,6 +158,34 @@ public class Sort {
         quickSort(a, i+1, right);
     }
 
+
+    private static void quickSort1(int[] a, int left, int right){
+        int i = left;
+        int j = right;
+        int mark = a[left];
+
+        while (i < j) {
+            while (i < j && a[j] >= mark)
+                --j;
+            if (i < j)
+                a[i++] = a[j];
+
+            while (i < j && a[i] <= mark)
+                ++i;
+            if (i < j)
+                a[j--] = a[i];
+        }
+        quickSort(a, left , i-1);
+        quickSort(a, i+1, right);
+    }
+
+    public static void main(String[] args) {
+        int[] a  =new int[]{1,4,2,1,5,3};
+        quickSort1(a, 0, a.length-1);
+        System.out.println( Arrays.toString(a));
+
+    }
+
     /**
      * 快速排序的list实现 方便一点
      * @param list
@@ -188,6 +216,8 @@ public class Sort {
             list.addAll(big);
         }
     }
+
+
 
     /**
      * 堆排序 升序采用大顶堆
@@ -246,13 +276,13 @@ public class Sort {
     }
 
 
-    public static void main(String[] args) {
-        int[] a = new int[]{1,4,3,76,2};
-        quickSort(a);
-        for (Integer integer : a){
-            System.out.println(integer);
-        }
-    }
+//    public static void main(String[] args) {
+//        int[] a = new int[]{1,4,3,76,2};
+//        quickSort(a);
+//        for (Integer integer : a){
+//            System.out.println(integer);
+//        }
+//    }
 
 
 }

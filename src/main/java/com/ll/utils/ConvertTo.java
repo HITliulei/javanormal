@@ -1,5 +1,7 @@
 package com.ll.utils;
 
+import java.util.concurrent.ArrayBlockingQueue;
+
 /**
  * @author Lei
  * @version 0.1

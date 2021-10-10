@@ -3,6 +3,7 @@ package com.ll.algorithm;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * 主要记录一下十个排序算法的实现过程,实现的都是从小到大的排序
@@ -73,6 +74,9 @@ public class Sort {
         }
     }
 
+    public static void main(String[] args) {
+        shellSort(new int[]{56,34,58,26,79,52,64,37,28,84,57});
+    }
 
     /**
      * 希尔排序
@@ -80,7 +84,8 @@ public class Sort {
      */
     public static void shellSort(int[] a){
         int length = a.length;
-        for (int i = length/2; i>0; i = i/2){
+//        for (int i = length/2; i>0; i = i/2){
+        for (int i = 4; i>0; i = i/2){
             for (int j = i; j <length ; j++) {
                 int current = a[j];
                 int index= j-i;
@@ -90,6 +95,7 @@ public class Sort {
                 }
                 a[index+i] = current;
             }
+            System.out.println(Arrays.toString(a));
         }
     }
 
@@ -179,12 +185,7 @@ public class Sort {
         quickSort(a, i+1, right);
     }
 
-    public static void main(String[] args) {
-        int[] a  =new int[]{1,4,2,1,5,3};
-        quickSort1(a, 0, a.length-1);
-        System.out.println( Arrays.toString(a));
 
-    }
 
     /**
      * 快速排序的list实现 方便一点
@@ -215,6 +216,44 @@ public class Sort {
             list.addAll(same);
             list.addAll(big);
         }
+    }
+
+    // 非递归的形式
+    public void qSort2(int[] a, int low, int high) {
+        int pivot;
+        if (low >= high)
+            return;
+        Stack<Integer> stack = new Stack<Integer>();
+        stack.push(low);
+        stack.push(high);
+        while (!stack.empty()) {
+            // 先弹出high,再弹出low
+            high = stack.pop();
+            low = stack.pop();
+            pivot = partition(a, low, high);
+            // 先压low,再压high
+            if (low < pivot - 1) {
+                stack.push(low);
+                stack.push(pivot - 1);
+            }
+            if (pivot + 1 < high) {
+                stack.push(pivot + 1);
+                stack.push(high);
+            }
+        }
+    }
+    private static int partition(int[] a, int start, int end) {
+        int pivot = a[start];
+        while (start < end) {
+            while (start < end && a[end] >= pivot)
+                end--;
+            a[start] = a[end];
+            while (start < end && a[start] <= pivot)
+                start++;
+            a[end] = a[start];
+        }
+        a[start] = pivot;
+        return start;
     }
 
 

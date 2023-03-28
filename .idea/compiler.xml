@@ -6,11 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="javanormal" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="javanormal" target="1.8" />
+      <module name="javanormal" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -35,7 +35,6 @@ public class ClientDemo{
     public static void main(String[] args) throws Exception{
         final ClientDemo client=new ClientDemo();
         Thread receiver=new Thread(client::receiveFromUser);
-
         receiver.start();
         client.talk();
     }

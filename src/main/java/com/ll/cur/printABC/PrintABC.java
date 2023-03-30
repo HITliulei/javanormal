@@ -1,6 +1,5 @@
 package com.ll.cur.printABC;
 
-import javax.jws.Oneway;
 
 /**
  * @author Lei

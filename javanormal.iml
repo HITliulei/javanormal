@@ -12,5 +12,6 @@
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.50.Final" level="project" />
     <orderEntry type="library" name="Maven: com.lmax:disruptor:3.4.4" level="project" />
     <orderEntry type="library" name="Maven: org.jctools:jctools-core:4.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.github.shyiko:mysql-binlog-connector-java:0.21.0" level="project" />
   </component>
 </module>

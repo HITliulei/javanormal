@@ -28,23 +28,34 @@
 
 
     <dependencies>
+        <!--    暂时用不到的netty学习    -->
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>${netty-version}</version>
         </dependency>
 
+        <!--   disruptor队列    -->
         <dependency>
             <groupId>com.lmax</groupId>
             <artifactId>disruptor</artifactId>
             <version>3.4.4</version>
         </dependency>
 
+        <!--   mpsc队列    -->
         <dependency>
             <groupId>org.jctools</groupId>
             <artifactId>jctools-core</artifactId>
             <version>4.0.1</version>
         </dependency>
+
+        <!--   mysql订阅现有的包     -->
+        <dependency>
+            <groupId>com.github.shyiko</groupId>
+            <artifactId>mysql-binlog-connector-java</artifactId>
+            <version>0.21.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>
